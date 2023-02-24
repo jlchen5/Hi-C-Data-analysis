@@ -1,0 +1,6 @@
+#Hi-C格式转换 （.hic → .cool）
+
+cat sample.txt |while read line ;do (nohup hicConvertFormat -m $line.hic --inputFormat hic --outputFormat cool -o $line.cool --resolutions 5000 &) ;done
+
+#cool转为h5
+cat sample.txt |while read line ;do (nohup hicConvertFormat -m ${line}_5000.cool --inputFormat cool --outputFormat h5 -o ${line}_5000.h5 --resolutions 5000 &) ;done
