@@ -1,0 +1,8 @@
+
+cd /path/to/hi-c/mapping/
+
+bowtie2 -p 16 -x /path/to/bowtie2/hg19 -1 R1.fastq.gz -2 R2.fastq.gz -S mapping.sam
+
+samtools view -bS mapping.sam | samtools sort -@ 16 -o mapping.sorted.bam -
+
+samtools rmdup mapping.sorted.bam mapping.sorted.rmdup.bam
