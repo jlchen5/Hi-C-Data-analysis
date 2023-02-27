@@ -1,0 +1,13 @@
+# 进入数据所在目录
+cd /path/to/hi-c/data/
+
+# 下载参考基因组和相应的注释文件
+wget http://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
+wget http://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/genes/hg19.refGene.gz
+
+# 解压参考基因组和注释文件
+gunzip hg19.fa.gz
+gunzip hg19.refGene.gz
+
+# 生成索引文件
+bowtie2-build hg19.fa hg19
