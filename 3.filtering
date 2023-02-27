@@ -1,0 +1,8 @@
+# 进入过滤后的数据输出目录
+cd /path/to/hi-c/filtering/
+
+# 过滤mapping.sorted.rmdup.bam文件中的无效数据
+juicer_tools pre -s 500000 -d -r 5000 -q 10 -l 30 -y hg19 /path/to/hi-c/mapping/mapping.sorted.rmdup.bam .
+
+# 将过滤后的数据进行排序
+sort -k1,1 -k2,2n inter_30.hic > inter_30_sorted.hic
